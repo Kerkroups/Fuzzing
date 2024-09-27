@@ -9,6 +9,22 @@
   -  LLVM: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md
   -  GCC: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.gcc_plugin.md
 
+**Пример компиляции**:
+
+**Вариант 1**:
+CC = устанавливаем компилятор для языка Си.  
+СХХ = устанавляваем компилятор для языка С++.  
+--disabled-shared = отключает использование динамических библиотек.  
+```
+CC=afl-clang-fast CXX=afl-clang-fast++ ./configure --disable-shared
+make
+```
+
+**Вариант 2**: если система сборки настроена на make.
+```
+make CC=afl-clang-fast CXX=afl-clang-fast++
+```
+
 **Опции инструментации**:  
  - COMPCOV: AFL_LLVM_LAF_ALL=1
  - Input-to-State: AFL_LLVM_CMPLOG=1  
