@@ -24,6 +24,10 @@ make
 ```
 make CC=afl-clang-fast CXX=afl-clang-fast++
 ```
+**Вариант 3**: для CMake  
+```
+mkdir build; cd build; cmake -DCMAKE_C_COMPILER=afl-cc -DCMAKE_CXX_COMPILER=afl-c++ ..  
+```
 
 **Опции инструментации**:  
  - COMPCOV: AFL_LLVM_LAF_ALL=1
