@@ -67,3 +67,17 @@ afl-cmin -i INPUTS -o INPUTS_UNIQUE -- bin/target -someopt @@
 ```
 afl-cmin -i INPUTS -o INPUTS_UNIQUE -- bin/target -someopt
 ```
+**Минимизируем файлы "corpus" **:  
+```
+mkdir input
+cd INPUTS_UNIQUE
+for i in *; do
+  afl-tmin -i "$i" -o "../input/$i" -- bin/target -someopt @@
+done
+```
+**Дополнительные опции перед началом фаззинга**:  
+1. sudo afl-system-config  
+2. sudo afl-persistent-config
+3. export AFL_SKIP_CPUFREQ=1
+
+
