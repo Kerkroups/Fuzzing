@@ -11,7 +11,7 @@
 
 **Пример компиляции**:
 
-**Вариант 1**:
+**Вариант 1**:  
 CC = устанавливаем компилятор для языка Си.  
 СХХ = устанавляваем компилятор для языка С++.  
 --disabled-shared = отключает использование динамических библиотек.  
@@ -25,8 +25,18 @@ make
 make CC=afl-clang-fast CXX=afl-clang-fast++
 ```
 **Вариант 3**: для CMake  
+- Указываем компиляторы для C и C++.
+- Отключаем использование динамических библиотек (shared libraries).  
 ```
-mkdir build; cd build; cmake -DCMAKE_C_COMPILER=afl-cc -DCMAKE_CXX_COMPILER=afl-c++ ..  
+cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF .  
+make  
+```
+**Вариант 4**: создание отдельной директории для сборки  
+```
+mkdir build
+cd build
+cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF ..
+make
 ```
 
 **Опции инструментации**:  
