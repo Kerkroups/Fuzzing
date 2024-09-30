@@ -10,11 +10,11 @@
   -  GCC: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.gcc_plugin.md
   
 **Если в системе установлен clang/clang++ 11+**:
--  Используем LTO mode (afl-clang-lto/afl-clang-lto++)
+-  Используем LTO mode (afl-clang-lto/afl-clang-lto++)  
 ```R=llvm-ar RANLIB=llvm-ranlib AS=llvm-as```  
 
 **Если в системе установлен clang/clang++ 3.8+**:  
--  Используем LLVM mode (afl-clang-fast/afl-clang-fast++)
+-  Используем LLVM mode (afl-clang-fast/afl-clang-fast++)  
 ```LLVM_CONFIG=llvm-config-17```  
 
 **Если в системе есть gcc5+**:  
