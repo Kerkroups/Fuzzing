@@ -11,7 +11,7 @@ afl-cmin -i INPUTS -o INPUTS_UNIQUE -- bin/target -someopt @@
 ```
 afl-cmin -i INPUTS -o INPUTS_UNIQUE -- bin/target -someopt
 ```
-**Минимизируем файлы "corpus" **:  
+**Минимизируем файлы "corpus"**:  
 ```
 mkdir input
 cd INPUTS_UNIQUE
@@ -20,6 +20,6 @@ for i in *; do
 done
 ```
 
-##СЛОВАРИ:  
+## СЛОВАРИ:  
 - С помощью afl-clang-fast вы можете установить AFL_LLVM_DICT2FILE=/full/path/to/new/file.dic для автоматической генерации словаря во время компиляции цели. Добавление AFL_LLVM_DICT2FILE_NO_MAIN=1, чтобы не разбирать main (обычно это разбор параметров командной строки), также часто является хорошей идеей.  
 - Указать afl-fuzz загрузить словарь: использовать флаг ```-x dictionaries/FORMAT.dict```.  
