@@ -30,13 +30,13 @@
     ```
 -  Испольуется make:
     ```
-    make CC=afl-clang-fast CXX=afl-clang-fast++
+    make CC=afl-clang-fast CXX=afl-clang-fast++ -j$(nproc)
     ```  
 
 -  Используется cmake:
     ```
     cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF ..
-    make
+    make -j$(nproc)
     ```
 
 ## ОПЦИИ ИНСТРУМЕНТАЦИИ:    
