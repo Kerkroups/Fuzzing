@@ -11,9 +11,11 @@
   
 **Если в системе установлен clang/clang++ 11+**:
 -  Используем LTO mode (afl-clang-lto/afl-clang-lto++)
+```R=llvm-ar RANLIB=llvm-ranlib AS=llvm-as```  
 
 **Если в системе установлен clang/clang++ 3.8+**:  
 -  Используем LLVM mode (afl-clang-fast/afl-clang-fast++)
+```LLVM_CONFIG=llvm-config-17```  
 
 **Если в системе есть gcc5+**:  
 -  Используем GCC_PLUGIN mode (afl-gcc-fast/afl-g++-fast)
