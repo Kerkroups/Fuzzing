@@ -9,29 +9,35 @@
   -  LLVM: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md
   -  GCC: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.gcc_plugin.md
   
-Если в системе установлен clang/clang++ 11+:
+**Если в системе установлен clang/clang++ 11+**:
 -  Используем LTO mode (afl-clang-lto/afl-clang-lto++)
 
-Если в системе установлен clang/clang++ 3.8+:  
+**Если в системе установлен clang/clang++ 3.8+**:  
 -  Используем LLVM mode (afl-clang-fast/afl-clang-fast++)
 
-Если в системе есть gcc5+:  
+**Если в системе есть gcc5+**:  
 -  Используем GCC_PLUGIN mode (afl-gcc-fast/afl-g++-fast)
 
-Если нет GCC с поддержкой плагинов:  
+**Если нет GCC с поддержкой плагинов**:  
 -  Используем GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)
 
 
 **Варианты сборки и компиляции**:  
 -  Используется связка configure + make:
-
+    ```
+    CC=afl-clang-fast CXX=afl-clang-fast++ ./configure --disable-shared
+    make
+    ```
 -  Испольуется make:
+    ```
+    make CC=afl-clang-fast CXX=afl-clang-fast++
+    ```  
 
 -  Используется cmake:
-
-
-**Передача флагов компилятору**:  
-- Passing –afl-MODE command line options to the compiler via CFLAGS/CXXFLAGS/CPPFLAGS
+    ```
+    cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF ..
+    make
+    ```
 
 ##ОПЦИИ ИНСТРУМЕНТАЦИИ:    
  - Активировать санитайзер COMPCOV: AFL_LLVM_LAF_ALL=1
