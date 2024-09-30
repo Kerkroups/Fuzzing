@@ -8,9 +8,7 @@
   -  LTO: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.lto.md
   -  LLVM: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md
   -  GCC: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.gcc_plugin.md
-
-**Пример компиляции**:  
-
+  
 Если в системе установлен clang/clang++ 11+:
 -  Используем LTO mode (afl-clang-lto/afl-clang-lto++)
 
@@ -21,9 +19,12 @@
 -  Используем GCC_PLUGIN mode (afl-gcc-fast/afl-g++-fast)
 
 Если нет GCC с поддержкой плагинов:  
--  Используем GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)  
+-  Используем GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)
 
-**Вариант 1**:  
+
+**Пример компиляции**:  
+
+**Вариант 1**: 
 - CC = устанавливаем компилятор для языка Си.  
 - СХХ = устанавляваем компилятор для языка С++.  
 - --disabled-shared = отключает использование динамических библиотек.  
@@ -36,6 +37,7 @@ make
 ```
 make CC=afl-clang-fast CXX=afl-clang-fast++
 ```
+
 **Вариант 3**: для CMake  
 - Указываем компиляторы для C и C++.
 - Отключаем использование динамических библиотек (shared libraries).  
@@ -43,6 +45,7 @@ make CC=afl-clang-fast CXX=afl-clang-fast++
 cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF .  
 make  
 ```
+
 **Вариант 4**: создание отдельной директории для сборки  
 ```
 mkdir build
@@ -51,19 +54,18 @@ cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -D
 make
 ```
 
-**Опции инструментации**:  
- - COMPCOV: AFL_LLVM_LAF_ALL=1
- - Input-to-State: AFL_LLVM_CMPLOG=1  
- - ASAN: AFL_USE_ASAN=1
- - MSAN: AFL_USE_MSAN=1
- - USBAN: AFL_USE_UBSAN=1
- - CFISAN: AFL_USE_CFISAN=1
- - TSAN: AFL_USE_TSAN=1
- - LSAN: AFL_USE_LSAN=1. __AFL_LEAK_CHECK(); добавляется во все области целевого исходного кода, где необходимо проверить утечку! Чтобы игнорировать проверку на утечку памяти для определенных распределений __AFL_LSAN_OFF();  
+##ОПЦИИ ИНСТРУМЕНТАЦИИ:    
+ - Активировать санитайзер COMPCOV: AFL_LLVM_LAF_ALL=1
+ - Активировать санитайзер Input-to-State: AFL_LLVM_CMPLOG=1  
+ - Активировать санитайзер ASAN: AFL_USE_ASAN=1
+ - Активировать санитайзер MSAN: AFL_USE_MSAN=1
+ - Активировать санитайзер USBAN: AFL_USE_UBSAN=1
+ - Активировать санитайзер CFISAN: AFL_USE_CFISAN=1
+ - Активировать санитайзер TSAN: AFL_USE_TSAN=1
+ - Активировать санитайзер LSAN: AFL_USE_LSAN=1. __AFL_LEAK_CHECK(); добавляется во все области целевого исходного кода, где необходимо проверить утечку! Чтобы игнорировать проверку на утечку памяти для определенных распределений __AFL_LSAN_OFF();  
 
-Пример:  
-  export AFL_LLVM_LAF_ALL=1 //Установить переменную для всех процессов в shell.  
-  AFL_LLVM_LAF_ALL=1 //Установить переменную для одного процесса.  
+
+##ПРЕДВАРИТЕЛЬНАЯ КОНФИГУРАЦИЯ СИСТЕМЫ:  
 
 **Дополнительные опции перед началом фаззинга**:  
 1. sudo afl-system-config  
