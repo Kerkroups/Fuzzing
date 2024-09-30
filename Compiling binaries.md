@@ -22,37 +22,13 @@
 -  Используем GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)
 
 
-**Пример компиляции**:  
+**Варианты сборки и компиляции**:  
+-  Используется связка configure + make:
 
-**Вариант 1**: 
-- CC = устанавливаем компилятор для языка Си.  
-- СХХ = устанавляваем компилятор для языка С++.  
-- --disabled-shared = отключает использование динамических библиотек.  
-```
-CC=afl-clang-fast CXX=afl-clang-fast++ ./configure --disable-shared
-make
-```
+-  Испольуется make:
 
-**Вариант 2**: если система сборки настроена на make.
-```
-make CC=afl-clang-fast CXX=afl-clang-fast++
-```
+-  Используется cmake:
 
-**Вариант 3**: для CMake  
-- Указываем компиляторы для C и C++.
-- Отключаем использование динамических библиотек (shared libraries).  
-```
-cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF .  
-make  
-```
-
-**Вариант 4**: создание отдельной директории для сборки  
-```
-mkdir build
-cd build
-cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF ..
-make
-```
 
 **Передача флагов компилятору**:  
 - Passing –afl-MODE command line options to the compiler via CFLAGS/CXXFLAGS/CPPFLAGS
