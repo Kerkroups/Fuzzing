@@ -9,7 +9,19 @@
   -  LLVM: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md
   -  GCC: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.gcc_plugin.md
 
-**Пример компиляции**:
+**Пример компиляции**:  
+
+Если в системе установлен clang/clang++ 11+:
+-  Используем LTO mode (afl-clang-lto/afl-clang-lto++)
+
+Если в системе установлен clang/clang++ 3.8+:  
+-  Используем LLVM mode (afl-clang-fast/afl-clang-fast++)
+
+Если в системе есть gcc5+:  
+-  Используем GCC_PLUGIN mode (afl-gcc-fast/afl-g++-fast)
+
+Если нет GCC с поддержкой плагинов:  
+-  Используем GCC mode (afl-gcc/afl-g++) (or afl-clang/afl-clang++ for clang)  
 
 **Вариант 1**:  
 - CC = устанавливаем компилятор для языка Си.  
