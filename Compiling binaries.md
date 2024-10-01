@@ -40,7 +40,7 @@
     cmake -DCMAKE_C_COMPILER=afl-clang-fast -DCMAKE_CXX_COMPILER=afl-clang-fast++ -DBUILD_SHARED_LIBS=OFF ..
     make -j$(nproc)
     ```
-
+![](https://appsec.guide/docs/fuzzing/c-cpp/aflpp/aflpp-decision.drawio.svg)
 ## ОПЦИИ ИНСТРУМЕНТАЦИИ:    
  - Активировать санитайзер COMPCOV: AFL_LLVM_LAF_ALL=1
  - Активировать санитайзер Input-to-State: AFL_LLVM_CMPLOG=1  
