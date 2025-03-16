@@ -57,3 +57,7 @@ int main() {
 }
 
 ```
+
+---------------------------------------------------------------------------------
+##SOURCES:  
+https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness
