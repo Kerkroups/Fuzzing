@@ -47,7 +47,7 @@
 
 ## ОПЦИИ ИНСТРУМЕНТАЦИИ:    
  - Активировать санитайзер COMPCOV: AFL_LLVM_LAF_ALL=1
- - Активировать санитайзер Input-to-State: AFL_LLVM_CMPLOG=1  
+ - Активировать санитайзер Input-to-State: AFL_LLVM_CMPLOG=1  //For GCC use AFL_GCC_CMPLOG=1  
  - Активировать санитайзер ASAN: AFL_USE_ASAN=1
  - Активировать санитайзер MSAN: AFL_USE_MSAN=1
  - Активировать санитайзер USBAN: AFL_USE_UBSAN=1
@@ -55,6 +55,13 @@
  - Активировать санитайзер TSAN: AFL_USE_TSAN=1
  - Активировать санитайзер LSAN: AFL_USE_LSAN=1. __AFL_LEAK_CHECK(); добавляется во все области целевого исходного кода, где необходимо проверить утечку! Чтобы игнорировать проверку на утечку памяти для определенных распределений __AFL_LSAN_OFF();
  - AFL_HARDEN=1  
+
+**ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ ДЛЯ afl-clang-fast / afl-clang-fast++ / afl-clang-lto / afl-clang-lto++**:  
+```AFL_LLVM_ALLOWLIST/AFL_LLVM_DENYLIST``` - переменные, которые указывают на файл в которых содержаться имена файлов или функций, которые должны быть инструментированы или не должны быть инструментированы.  
+
+**CTX**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md#6-afl-context-sensitive-branch-coverage  
+**LTO**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.lto.md  
+**LAF-INTEL**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.laf-intel.md  
 
 ## СОЗДАНИЕ ТЕСТОВЫХ ДАННЫХ ("CORPUS"):  
 Данные для тестирования в контексте фаззинга называются "corpus". Это могут быть любые файлы, например png,zip,pdf,etc. Расширение файла подбиравется в зависимости от того с каким расширением взаимодействует приложение. Чем больше данных для тестирирования - тем лучше.  
