@@ -47,7 +47,17 @@ while (__AFL_LOOP(10000)) {
 #include <stdio.h>
 #include <unistd.h>
 
+#ifndef __AFL_LOOP
+  #define __AFL_LOOP(x) while(1)
+#endif
+
+#ifndef __AFL_INIT
+  #define __AFL_INIT()
+#endif
+
 int main() {
+
+__AFL_INIT();
     unsigned char buf[1024];
 
     while (__AFL_LOOP(10000)) {  // 10,000 итераций в одном процессе
