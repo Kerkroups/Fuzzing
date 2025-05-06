@@ -2,43 +2,34 @@
 2. Изучить формат ввода данных и интерфейс функции.
 
 ```
-#include <libraries>
-
-#ifndef __AFL_FUZZ_TESTCASE_LEN
-  ssize_t len; //Определяем переменную которая будет хранить длину входных данных, считанных из stdin.
-  #define __AFL_FUZZ_TESTCASE_LEN len //Макрос ссылается на переменную len.
-  unsigned char fuzz_buf[1024000]; //Определяем переменную которая будет определять значение буфера. Используется для передачи входных данных фазеру.
-  #define __AFL_FUZZ_TESTCASE_BUF fuzz_buf //Макрос ссылается на переменную buf.
-  #define __AFL_LOOP(x) ((fuzz_len = read(0, fuzz_buf, sizeof(fuzz_buf))) > 0 ? 1 : 0) //Читаем данные из stdin в buf. Записываем размер данных в len. Проверяем успешно ли прошло чтение.
-#endif
+#include "gguf.cpp"  // Подключает всё, включая struct gguf_context
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 __AFL_FUZZ_INIT();
 
-int LLVMFuzzerInitialize(int *argc, char ***argv) {
-  //Обработка входных данных
-  // try {
-          Processing data
-    } catch (...) {
-        // Suppress exceptions, focus on crash detection
-    }
-return 0;
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
+    FILE *fp = fmemopen((void *)data, size, "rb");
+    if (!fp) return 0;
+
+   // CODE LOGIC
+    return 0;
 }
 
-
-int main(int argc, char **argv) {
-
+extern "C" int main(int argc, char **argv) {
 #ifdef __AFL_HAVE_MANUAL_CONTROL
-  __AFL_INIT();
+    __AFL_INIT();
 #endif
 
-while (__AFL_LOOP(10000)) {
-        fuzz_len = read(0, fuzz_buf, sizeof(fuzz_buf));
-        if (fuzz_len <= 0) break;
-        LLVMFuzzerTestOneInput(fuzz_buf, fuzz_len);
+    while (__AFL_LOOP(10000)) {
+        LLVMFuzzerTestOneInput(__AFL_FUZZ_TESTCASE_BUF, __AFL_FUZZ_TESTCASE_LEN);
     }
 
     return 0;
 }
+
 
 ```
 ---------------------------------------------------------------------------------
@@ -46,14 +37,6 @@ while (__AFL_LOOP(10000)) {
 ```
 #include <stdio.h>
 #include <unistd.h>
-
-#ifndef __AFL_LOOP
-  #define __AFL_LOOP(x) while(1)
-#endif
-
-#ifndef __AFL_INIT
-  #define __AFL_INIT()
-#endif
 
 int main() {
 
