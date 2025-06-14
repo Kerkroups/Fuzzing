@@ -36,3 +36,8 @@ x/i $rip
 
 In general we interested in RIP, RAX, RDI, RDX, RCX, RSI registers. If we got valuse from file in RCX, RDI, RSI - it's interesting, need to examine.
 
+Searching for loaded libraries:  
+```
+info proc mapping
+```
+
