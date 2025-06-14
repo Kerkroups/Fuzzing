@@ -41,3 +41,23 @@ Searching for loaded libraries:
 info proc mapping
 ```
 
+Get information about binary:  
+```
+// Get information about binary headers
+readelf -S ./binary_name
+```
+
+## Assambler:  
+
+- [...] всегда означает «разыменуй адрес».
+- Если [...] слева — запись в память;
+- Если [...] справа — чтение из памяти.
+
+```mov rax, [rdx]``` = move in RAX content of RDX point to. [] = dereference value betwen them. a = *b.  
+```mov rax, rdx``` = move content from RDX to RAX.  
+```mov rax, 1``` = move 1 to RAX.  
+```call 0x11223344``` = call the function at address.  
+```cmp rax, 1``` = compare RAX with 1.  
+```jmp 0x11223344``` = unconditional jump to address.  
+
+
