@@ -47,6 +47,23 @@ Get information about binary:
 readelf -S ./binary_name
 ```
 
+Get information which shared libraries used by application:  
+```
+ldd ./binary_name
+```
+
+Get information abount application sections:  
+```
+readelf -p [section_name] ./binary_name
+OR
+objdump -s --section [section_name] ./binary_name
+```
+
+Get function names that used in application:  
+```
+nm -D --demangle ./binary_name
+```
+
 ## Assambler:  
 
 - [...] всегда означает «разыменуй адрес».  
