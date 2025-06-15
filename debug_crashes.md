@@ -82,6 +82,10 @@ nm -D --demangle ./binary_name
 ```call 0x11223344``` = call the function at address.  
 ```cmp rax, 1``` = compare RAX with 1.  
 ```jmp 0x11223344``` = unconditional jump to address.  
+x/gx $rbp-8   # посмотреть возможную канарейку
+x/gx $rbp     # сохранённый rbp
+x/gx $rbp+8   # адрес возврата
+
 
 BYTE = 1 byte = 8 bits.  
 WORD = 2 bytes = 16 bits.  
