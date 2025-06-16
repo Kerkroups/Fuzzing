@@ -103,3 +103,7 @@ GOT (Global Offset Table) используется только в динами�
   - Динамически слинкованный ELF (не -static).
   - Не включён RELRO=full (или RELRO=partial, тогда GOT можно переписать до разрешения символа).
   - Нет защиты NX (или есть возможность переписать адрес с помощью write-primitive).
+
+ВАЖНО: проверить в какой области памяти находятся регистры. Например rsi,rax,rdi,rdx в heap? mmap?
+
+Контролируеая операция ```memcpy(dst, src, size);``` может привести к RCE. arbitrary write (dst = какой-то ptr, src = shellcode)
