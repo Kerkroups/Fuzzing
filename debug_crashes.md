@@ -41,6 +41,11 @@ Searching for loaded libraries:
 info proc mapping
 ```
 
+Get address of variable:  
+```
+info address [var_name]
+```  
+
 Get information about binary:  
 ```
 // Get information about binary headers
@@ -62,6 +67,11 @@ objdump -s --section [section_name] ./binary_name
 Get function names that used in application:  
 ```
 nm -D --demangle ./binary_name
+```
+Get VTABLE information:  
+```
+readelf -s ./binary_name | grep "_ZTV" // List of classes with virtual functions.
+readelf -S vtable_viln | grep '\.data.rel.ro\|\.rodata|\.data' // Секуии где находятся vtable. 
 ```
 
 ## Assambler:  
