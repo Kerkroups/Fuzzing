@@ -71,7 +71,7 @@ nm -D --demangle ./binary_name
 Get VTABLE information:  
 ```
 readelf -s ./binary_name | grep "_ZTV" // List of classes with virtual functions.
-readelf -S vtable_viln | grep '\.data.rel.ro\|\.rodata|\.data' // Секуии где находятся vtable. 
+readelf -S ./binary_name | grep '\.data.rel.ro\|\.rodata|\.data' // Секции где находятся vtable. 
 ```
 
 ## Assambler:  
