@@ -2,9 +2,9 @@
 2. Изучить формат ввода данных и интерфейс функции.
 
 ```
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstdint>
+#include <cstdio>
 #include <unistd.h>
 
 __AFL_FUZZ_INIT();
