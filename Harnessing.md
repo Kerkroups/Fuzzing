@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <cstdio>
 #include <unistd.h>
+#include <stddef.h>
 
 __AFL_FUZZ_INIT();
 
