@@ -2,7 +2,6 @@
 2. Изучить формат ввода данных и интерфейс функции.
 
 ```
-#include "gguf.cpp"  // Подключает всё, включая struct gguf_context
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,8 +13,23 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     FILE *fp = fmemopen((void *)data, size, "rb");
     if (!fp) return 0;
 
-   // CODE LOGIC
+    char filename[] = "/tmp/fuzz_image_XXXXXX";
+    int fd = mkstemp(filename);
+    if (fd == -1) return 0;
+
+    fwrite(data, 1, size, fp);
+    fclose(fp);
     return 0;
+
+    try {
+        //CODE LOGIC
+    } catch() {
+        ...
+    }
+
+    unlink(filename);
+    return 0;
+
 }
 
 extern "C" int main(int argc, char **argv) {
@@ -33,51 +47,6 @@ extern "C" int main(int argc, char **argv) {
 
 ```
 ---------------------------------------------------------------------------------
-
-```
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-
-__AFL_FUZZ_INIT();
-
-extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
-    if (size == 0 || size > 1024 * 1024) return 0;
-
-    // создаём временный файл
-    char tmpname[] = "/tmp/gguf.XXXXXX";
-    int fd = mkstemp(tmpname);
-    if (fd < 0) return 0;
-
-    // записываем fuzz-вход
-    ssize_t written = write(fd, data, size);
-    close(fd);
-    if (written != (ssize_t)size) {
-        unlink(tmpname);
-        return 0;
-    }
-
-    // CODE LOGIC
-
-    unlink(tmpname);
-    return 0;
-}
-
-extern "C" int main(int argc, char **argv) {
-#ifdef __AFL_HAVE_MANUAL_CONTROL
-    __AFL_INIT();
-#endif
-
-    while (__AFL_LOOP(10000)) {
-        LLVMFuzzerTestOneInput(__AFL_FUZZ_TESTCASE_BUF, __AFL_FUZZ_TESTCASE_LEN);
-    }
-
-    return 0;
-}
-
-```
 ---------------------------------------------------------------------------------
 
 ```
