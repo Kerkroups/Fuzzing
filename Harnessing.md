@@ -75,4 +75,5 @@ __AFL_INIT();
 
 ---------------------------------------------------------------------------------
 ## SOURCES:  
-https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness
+https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness  
+https://bushido-sec.com/index.php/2025/01/03/fuzzing-harness-guide/  
