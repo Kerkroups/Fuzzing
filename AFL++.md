@@ -63,6 +63,8 @@
 **LTO**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.lto.md  
 **LAF-INTEL**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.laf-intel.md  
 
+- https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/env_variables.md
+
 ## СОЗДАНИЕ ТЕСТОВЫХ ДАННЫХ ("CORPUS"):  
 Данные для тестирования в контексте фаззинга называются "corpus". Это могут быть любые файлы, например png,zip,pdf,etc. Расширение файла подбиравется в зависимости от того с каким расширением взаимодействует приложение. Чем больше данных для тестирирования - тем лучше.  
 
