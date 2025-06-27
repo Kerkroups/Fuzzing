@@ -70,7 +70,7 @@
 ## НАЧАЛО ФАЗИНГА:  
 
 [Опционально]: Кеширование тестовых экземпляров ```AFL_TESTCACHE_SIZE=500MB```  
-[Опционально]: добавить бинарник **CMPLOG** к фазеру: ```afl-fuzz -i input -o output -c ./binary_CMPLOG -S secondary-0 -- ./harness @@```
+[Опционально]: добавить бинарник **CMPLOG** к фазеру: ```afl-fuzz -i input -o output -c ./binary_CMPLOG -S secondary-0 -- ./harness @@```  
 [Опционально]: Добавить словарь: ```afl-fuzz -i input -o output -x dictionary.txt -S secondary-0 -- ./harness @@```  
 
 **Монтирование tmpfs**:```sudo mount -t tmpfs -o size=6g tmpfs /home/fuzzing/output``` // Как вариант можно использовать /tmp/output  
