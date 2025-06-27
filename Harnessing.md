@@ -73,7 +73,13 @@ __AFL_INIT();
 
 ```
 
----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------  
+
+## ИНСТРУМЕНТАЦИЯ:  
+
+# Выборочная инструментация: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md
+
+
 ## SOURCES:  
 https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness  
 https://bushido-sec.com/index.php/2025/01/03/fuzzing-harness-guide/  
