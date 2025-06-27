@@ -75,9 +75,9 @@ __AFL_INIT();
 
 ---------------------------------------------------------------------------------  
 
-## ИНСТРУМЕНТАЦИЯ:  
+# ИНСТРУМЕНТАЦИЯ:  
 
-# Выборочная инструментация: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md
+### Выборочная инструментация: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md
 
 
 ## SOURCES:  
