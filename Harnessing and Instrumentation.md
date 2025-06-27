@@ -82,7 +82,10 @@ __AFL_INIT();
 
 # ИНСТРУМЕНТАЦИЯ:  
 
-### Выборочная инструментация: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md
+**Выборочная инструментация**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md  
+**CTX**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md#6-afl-context-sensitive-branch-coverage  
+**LTO**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.lto.md  
+**LAF-INTEL**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.laf-intel.md
 
 # CАНИТАЙЗЕРЫ:  
 
@@ -95,8 +98,6 @@ __AFL_INIT();
 - Активировать санитайзер TSAN: ```AFL_USE_TSAN=1```
 - Активировать санитайзер LSAN: ```AFL_USE_LSAN=1```. __AFL_LEAK_CHECK(); добавляется во все области целевого исходного кода, где необходимо проверить утечку! Чтобы игнорировать проверку на утечку памяти для определенных распределений __AFL_LSAN_OFF();
 - AFL_HARDEN=1
-
-
 
 ## SOURCES:  
 https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness  
