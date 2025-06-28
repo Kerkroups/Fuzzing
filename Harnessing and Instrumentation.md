@@ -99,6 +99,14 @@ __AFL_INIT();
 - Активировать санитайзер LSAN: ```AFL_USE_LSAN=1```. __AFL_LEAK_CHECK(); добавляется во все области целевого исходного кода, где необходимо проверить утечку! Чтобы игнорировать проверку на утечку памяти для определенных распределений __AFL_LSAN_OFF();
 - AFL_HARDEN=1
 
+ # ЧАСТИЧНАЯ ИНСТРУМЕНТАЦИЯ:  
+Для afl-clang-fast/afl-clang-fast++ or afl-clang-lto/afl-clang-lto++:
+- ```AFL_LLVM_ALLOWLIST``` - список файлов и функций для инструментации.
+- ```AFL_LLVM_DENYLIST``` - список файлов и функций запрещенных для инструментации.
+
+# ИНСТРУМЕНТАЦИЯ ФАЛОВ ДЛЯ LIBFUZZER: 
+Добавить флаг ```-fsanitize=fuzzer```  
+
 ## SOURCES:  
 https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness  
 https://bushido-sec.com/index.php/2025/01/03/fuzzing-harness-guide/  
