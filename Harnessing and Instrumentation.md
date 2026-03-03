@@ -1,4 +1,4 @@
-# ШАБЛОНЫ ДЛЯ HARNESS: 
+## ШАБЛОНЫ ДЛЯ HARNESS: 
 
 1. Идентифицировать целевую функцию.
 2. Изучить формат ввода данных и интерфейс функции.
@@ -14,14 +14,14 @@
  - Ищем в коде, который хотим пофазить, нужные нам функции и обворачиваем их в AFL PERSISTENT LOOP, предварительно не забываем подключить заголовки AFL, и инструментируем бинарник.
  - У проекта есть готовый вариант для libFuzzer. Инструментирует бинарник с флагом -fsanitize=fuzzer, после ищем бинарник для фазинга и запускаем фазинг с помощью libFuzzer.
 
-# ИНСТРУМЕНТАЦИЯ:  
+## ИНСТРУМЕНТАЦИЯ:  
 
 **Выборочная инструментация**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md  
 **CTX**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.llvm.md#6-afl-context-sensitive-branch-coverage  
 **LTO**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.lto.md  
 **LAF-INTEL**: https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.laf-intel.md
 
-# CАНИТАЙЗЕРЫ:  
+## CАНИТАЙЗЕРЫ:  
 
 - **Активировать санитайзер COMPCOV**: ```AFL_LLVM_LAF_ALL=1```
 - **Активировать санитайзер Input-to-State**: ```AFL_LLVM_CMPLOG=1 //For GCC use AFL_GCC_CMPLOG=1```
@@ -33,14 +33,14 @@
 - **Активировать санитайзер Leak sanitizer (LSAN)**: ```AFL_USE_LSAN=1```. Используется для разработчиков, мало чем помогает в фазинге. __AFL_LEAK_CHECK(); добавляется во все области целевого исходного кода, где необходимо проверить утечку! __AFL_LSAN_OFF(); ставится пере выделением памяти, __AFL_LSAN_ON(); после. Код между этими двумя макросами не будет проверяться на учтечку памяти.  
 - AFL_HARDEN=1
 
- # ЧАСТИЧНАЯ ИНСТРУМЕНТАЦИЯ:  
+## ЧАСТИЧНАЯ ИНСТРУМЕНТАЦИЯ:  
 Для afl-clang-fast/afl-clang-fast++ or afl-clang-lto/afl-clang-lto++:
 - ```AFL_LLVM_ALLOWLIST``` - список файлов и функций для инструментации.
 - ```AFL_LLVM_DENYLIST``` - список файлов и функций запрещенных для инструментации.
 
-# ИНСТРУМЕНТАЦИЯ ФАЛОВ LIBFUZZER: 
-Добавить флаг ```-fsanitize=fuzzer```  
+## ДОПОЛНИТЕЛЬНЫЕ УТИЛИТЫ:  
+[https://github.com/zardus/preeny.git](https://github.com/zardus/preeny.git)  
 
-# SOURCES:  
+## SOURCES:  
 https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness  
 https://bushido-sec.com/index.php/2025/01/03/fuzzing-harness-guide/  
