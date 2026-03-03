@@ -3,7 +3,16 @@
 1. Идентифицировать целевую функцию.
 2. Изучить формат ввода данных и интерфейс функции.
 
-[templates](templates)
+[templates](templates)  
+
+**Дополнительные гайды по созданию harness**:  
+ - [STDIN](https://appsec.guide/docs/fuzzing/c-cpp/aflpp/#standard-input-stdin-fuzzing)
+ - [FILE BASED](https://appsec.guide/docs/fuzzing/c-cpp/aflpp/#file-input-fuzzing)
+ - [ARGUMENT BASED](https://appsec.guide/docs/fuzzing/c-cpp/aflpp/#argument-fuzzing)  
+
+Если написать harness нет возможности или не хочется ломать над этим всем голову, то есть следующие варианты:  
+ - Ищем в коде, который хотим пофазить, нужные нам функции и обворачиваем их в AFL PERSISTENT LOOP, предварительно не забываем подключить заголовки AFL, и инструментируем бинарник.
+ - У проекта есть готовый вариант для libFuzzer. Инструментирует бинарник с флагом -fsanitize=fuzzer, после ищем бинарник для фазинга и запускаем фазинг с помощью libFuzzer.
 
 # ИНСТРУМЕНТАЦИЯ:  
 
