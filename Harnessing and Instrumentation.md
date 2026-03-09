@@ -1,10 +1,19 @@
 ## ШАБЛОНЫ ДЛЯ HARNESS: 
 
 1. Идентифицировать целевую функцию.
-2. Изучить формат ввода данных и интерфейс функции.
+2. Изучить формат ввода данных и интерфейс функции.  
 
 [templates](templates)  
 
+Исходя из статей [https://srlabs.de/blog/guide-to-writing-fuzzing-harness](https://srlabs.de/blog/guide-to-writing-fuzzing-harness) и [https://srlabs.de/blog/unlocking-secrets-effective-fuzzing-harness](https://srlabs.de/blog/unlocking-secrets-effective-fuzzing-harness) делаем вывод и следуем предположительно основным критериям рабочего harness:  
+1. Проверяем размер входящих данных.
+2. Вхоядщие данные интерпретируем как "структуру", и для определенной части этой "структуры" можем задать тип данных.  
+3. Используем FuzzedDataProvider.
+4. Для некоторых библиотек нужна инициализация состояния (объявления класса).
+5. В некоторых случаях нужно проверять возвращаемый код.
+6. Освобождать выделенную память.
+7. Выполнять проверки на явно невалидные исходные данные.
+  
 **Дополнительные гайды по созданию harness**:  
  - [STDIN](https://appsec.guide/docs/fuzzing/c-cpp/aflpp/#standard-input-stdin-fuzzing)
  - [FILE BASED](https://appsec.guide/docs/fuzzing/c-cpp/aflpp/#file-input-fuzzing)
