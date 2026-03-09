@@ -7,6 +7,7 @@
 __AFL_FUZZ_INIT();
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
+   if (size < 32) return 0;
    char filename[] = "/tmp/fuzz_image_XXXXXX";
     int fd = mkstemp(filename);
     if (fd == -1) return 0;
