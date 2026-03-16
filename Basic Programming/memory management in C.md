@@ -5,6 +5,16 @@
 - calloc()
 - realloc()
 
-heap chunk: metadata + userdata;  
+**heap chunk: metadata + userdata**;  
 metadata: prev_size, size; где prev_size - размер предыдущего chunk, size - размер текущего chunk.  
-Чанки следуют друг за другом. Вычисление следующего чанка находится так: next_chunk = chunk + chunk->size
+Чанки следуют друг за другом. Вычисление следующего чанка находится так: ```next_chunk = chunk + chunk->size```
+
+free(ptr);
+Осле освобождения чанка структура чанка меняется: 
+
+| prev_size    |
+| size         |
+| fd           |
+| bk           |
+| unused space |
+
