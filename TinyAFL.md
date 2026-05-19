@@ -46,3 +46,6 @@ EXE:
 Данный функционал позволяет добавить проверки ошибок памяти, такие как heap corruption, buffer overflow.  
 Дополнительная документация: https://learn.microsoft.com/ru-ru/windows-hardware/drivers/debugger/gflags-and-pageheap  
 ```gflags.exe /p /enable <prog.exe>```
+
+## Дополнительные ресурсы:  
+- https://www.youtube.com/watch?v=XeN3M0sK9GA  
