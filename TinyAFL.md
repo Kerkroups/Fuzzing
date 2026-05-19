@@ -38,4 +38,9 @@
 DLL:
 ```DLL base - Function location = offset```  
 EXE:
-```EXE base - Function location = offset```
+```EXE base - Function location = offset```  
+
+**PageHeap**:  
+Данный функционал позволяет добавить проверки ошибок памяти, такие как heap corruption, buffer overflow.  
+Дополнительная документация: https://learn.microsoft.com/ru-ru/windows-hardware/drivers/debugger/gflags-and-pageheap  
+```gflags.exe /p /enable <prog.exe>```
