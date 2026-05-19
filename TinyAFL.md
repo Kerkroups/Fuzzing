@@ -8,6 +8,8 @@
 **Используемые инструменты**:
 - https://github.com/linhlhq/TinyAFL
 - https://github.com/googleprojectzero/TinyInst
+- WinAFL
+- DynamoRIO
 
 ## ФАЗИМ DLL - Алгоритм действий:  
 1. Найти DLL который что-то парсит/обрабатывает.
