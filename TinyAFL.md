@@ -49,3 +49,7 @@ EXE:
 
 ## Дополнительные ресурсы:  
 - https://www.youtube.com/watch?v=XeN3M0sK9GA  
+
+## Просто фазинг бинарника  
+1. ```afl-fuzz.exe -i input -o outpud -D path/to/DynamoRIO/binary -t <timeout for each run> -m <memory limit for the target process> -- -coverage_module <> -target_module <prog/module that contain target function> --target_offset <offset> -fuzz_iterations <number of iterations> -- harness.exe @@```
+2. 
