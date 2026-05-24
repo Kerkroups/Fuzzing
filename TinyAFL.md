@@ -51,5 +51,13 @@ EXE:
 - https://www.youtube.com/watch?v=XeN3M0sK9GA  
 
 ## Просто фазинг бинарника  
+Перед началом фазинга необхоимо установить DynamoRIO и WinAFL.  
+
 1. ```afl-fuzz.exe -i input -o outpud -D path/to/DynamoRIO/binary -t <timeout for each run> -m <memory limit for the target process> -- -coverage_module <> -target_module <prog/module that contain target function> --target_offset <offset> -fuzz_iterations <number of iterations> -- harness.exe @@```
-2. 
+
+**Анализ crashes**:  
+Для анализа багов и создания отчетов будем использовать утилиту https://github.com/SkyLined/BugId.git.  
+
+Создание отчета: ```python.exe BugId.py prog.exe -- poc```  
+
+
