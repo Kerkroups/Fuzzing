@@ -11,7 +11,7 @@
 - WinAFL
 - DynamoRIO
 
-## INSTALLATION:
+## Установка WinAFL:
 1. Download DynamoRIO (https://github.com/DynamoRIO/dynamorio/releases)
 2. Download WinAFL sources (https://github.com/googleprojectzero/winafl.git)
 3. Install Visual Studio with C++ Development tools  
