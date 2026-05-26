@@ -10,6 +10,7 @@
 - https://github.com/googleprojectzero/TinyInst
 - WinAFL
 - DynamoRIO
+- https://github.com/googleprojectzero/Jackalope.git  
 
 ## Установка WinAFL:
 1. Download DynamoRIO (https://github.com/DynamoRIO/dynamorio/releases)
