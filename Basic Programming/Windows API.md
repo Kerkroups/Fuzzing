@@ -89,4 +89,9 @@ LPARAM lParam = (LPARAM)somePointer;
 WPARAM - беззнаковый параметр сообщения.  
 ```
 WPARAM wParam = (WPARAM)someUnsignedPointer;
+```
+
+LPCVOID - указатель на константу любого типа (READ ONLY).  
+```
+LPCVOID pcVoid = malloc(10);
 ```  
