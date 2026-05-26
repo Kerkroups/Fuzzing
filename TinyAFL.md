@@ -51,9 +51,10 @@ EXE:
 - https://www.youtube.com/watch?v=XeN3M0sK9GA  
 
 ## Фазинг бинарника  
-Перед началом фазинга необхоимо установить DynamoRIO и WinAFL.  
+Перед началом фазинга необхоимо установить DynamoRIO и WinAFL. В примере ниже сперва нам необходимо найти функцию которую будем фазить, для этого нужно дизассамблировать бинарник и изучить его функции, аргументы функций. Псоле того, как нашили интересующую нас функцию, нужно определить её адресс в программе, затем найти сдвиг (начало функции - начало программы).
 
 1. ```afl-fuzz.exe -i input -o outpud -D path/to/DynamoRIO/binary -t <timeout for each run> -m <memory limit for the target process> -- -coverage_module <> -target_module <prog/module that contain target function> --target_offset <offset> -fuzz_iterations <number of iterations> -- harness.exe @@```
+
 
 **Анализ crashes**:  
 Для анализа багов и создания отчетов будем использовать утилиту https://github.com/SkyLined/BugId.git.  
