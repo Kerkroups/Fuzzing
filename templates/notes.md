@@ -6,4 +6,4 @@
 
 **-I** - header files  
 **-L** - dynamic files  
-**pkg-config --libs <libname>**  
+**pkg-config --libs <libname>** OR **find /usr/lib /usr/local/lib -name "*mysql*"** В результатах вы найдете libmysqlclient.so. Отбрасываем lib и .so, получаем флаг -lmysqlclient.  
