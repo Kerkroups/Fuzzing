@@ -9,11 +9,11 @@ __AFL_FUZZ_INIT();
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
    if (size < 32) return 0;
    char filename[] = "/tmp/fuzz_image_XXXXXX";
-    int fd = mkstemp(filename);
-    if (fd == -1) return 0;
+   int fd = mkstemp(filename);
+   if (fd == -1) return 0;
 
-    FILE *out = fdopen(fd, "wb");
-    if (!out) {
+   FILE *out = fdopen(fd, "wb");
+   if (!out) {
         close(fd);
         unlink(filename);
         return 0;
@@ -21,6 +21,15 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     
     fwrite(data, 1, size, out);
     fclose(out);
+
+   /**
+   int fd = mkstemp(filename);
+	if (fd == -1)
+		return 0;
+	
+	write(fd, data, size);
+	close(fd);
+   **/
 
     try {
         // CODE LOGIC
