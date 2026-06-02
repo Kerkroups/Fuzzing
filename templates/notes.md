@@ -6,3 +6,4 @@
 
 **-I** - header files  
 **-L** - dynamic files  
+**pkg-config --libs <libname>**  
