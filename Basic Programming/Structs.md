@@ -94,4 +94,34 @@ int main() {
   return 0;
 }
 ```
+**Вложенные структуры**:  
+Структуры могту быть объявлденны внутри других структур. Существует два основных способа создания вложенных структур:  
+1. Прямое объявление - тип вложенной структуры определяется внутри главной.
+2. Использование ссылок - создание структуры отдельно, а затем включение экземпляра или указателя на нее в качестве поля.
 
+```
+#include <stdio.h>
+#include <string.h>
+
+struct Address {
+  char city[50];
+  char street[50];
+  int house;
+}
+
+struct Employee {
+  char name[50];
+  int id;
+  struct Address address;
+}
+
+int main() {
+  struct Employee emp;
+  strncpy(emp.name, "Test", sizeof(emp.name - 1));
+  emp.id = 100;
+  strncpy(emp.address.city, "Washington", sizeof(emp.address.city - 1);
+  strncpy(emp.address.street, "Test street", sizeof(emp.address.street - 1);
+  emp.address.house = 1;
+  return 0;
+}
+```  
