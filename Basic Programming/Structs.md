@@ -42,3 +42,56 @@ struct имя {
 ```
 
 Доступ к элементам стрктуры осуществляется с помощью оператора ```.``` или ```->```, напрмер: ```data.a, data->a```;  
+
+**Функции в структурах**:  
+В Си структуры не могут содержать функции внутри себя. Функции в структуре можно сымитировать с помощью указателей на функции, сделав их полями структуры.  
+
+```
+#include <stdio.h>
+
+int get_area(int x, int y) {
+  return x*y;
+}
+
+struct Rectangle {
+  int width;
+  int height;
+  int (*area)(int, int); // Указатель на функцию;
+}
+
+int main() {
+  struct Rectangle rect;
+  rect.width = 5;
+  rect.height = 5;
+  rect.area = get_area; // Можно записать как rect.area = &get_area;
+  int result = rect.area(rect.width, rect.height);
+  printf("Area: %d\n", result);
+  return 0;
+}
+```
+**Передача структур в функции**:  
+Передача структуры в аргументы функции осуществляется двумя способами:  
+1. По значению: создается копия структуры.
+2. По указателю: передается адрес структуры. Позволяет функции менять оригинальные данные в структуре.
+
+```
+#include <stdio.h>
+
+struct Rectangle {
+  int x;
+  int y;
+}
+
+int move_point(struct Rectangle *p, int x, int y) {
+  p->x += x;
+  p->y += y;
+}
+
+int main() {
+  struct Rectangle my_point = {10, 20};
+  move_point(&my_point, 5, -5); // 10 + 5, 20 - 5
+  printf("X: %d, Y: %d", my_point.x, my_point.y); // X: 15, Y: 15
+  return 0;
+}
+```
+
