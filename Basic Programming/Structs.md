@@ -126,3 +126,54 @@ int main() {
 }
 ```  
 **Размер структуры**: sizeof() структуры равен сумме всех её полей (с учетом выравнивания памяти компилятором).  
+**Динамические структуры**:  
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Address {
+  char *city;
+  int house;
+}
+
+struct Employee {
+  char *name;
+  struct Address *address; // Указатель на структуру.
+}
+
+int main() {
+  struct Employee emp = (struct Employee *)malloc(sizeof(struct Employee)); // Выделяем память под структуру Employee;
+  if (emp == NULL) return 1;
+  emp->address = (struct Address *)malloc(sizeof(struct address)); // Выделяем память под структуру Address;
+  if (emp->address == NULL) {
+    free(emp);
+    return 1;
+  }
+  emp->name = (char *)malloc(50 * sizeof(char)); // Выделяем память под переменную name внутри структуры Employee;
+  emp->address->city = (char *)malloc(50 * sizeof(char)); // Выделяем память под переменную city внутри структуры Address;
+  strncpy(emp->city, "Tester", sizeof(emp.name - 1);
+  strncpy(emp->address->city, "Washington", sizeof(emp.address.city - 1);
+  emp->address->house = 1;
+  printf("Employee: %s, city: %s, house: %d", emp->name, emp->address->city, emp->address->house);
+
+  free(emp->address->house);
+  free(emp->address->city);
+  free(emp->address);
+  free(emp->name);
+  free(emp);
+
+  return 0;
+}
+```
+Если очищать память в неправильном порядке могут возникнуть такие проблемы:  
+1. Утечка памяти;
+2. Segmentation fault;
+
+Если сначала удалить основную структуру free(emp), то адресс вложенной структуры может быть потерян. Программа больше не имеет кним доступа, но операционная система считает эту память занятой.  
+USe-after-free:  
+```
+free(emp);
+free(emp->address); // Чтение из неопределенной памяти.
+```
+Программа попытается прочитать данные по случайному адресу.  
