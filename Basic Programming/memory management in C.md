@@ -9,13 +9,13 @@
 - malloc()
 - calloc()
 - realloc()
+- free()  
 
 **heap chunk: metadata + userdata**;  
 metadata: prev_size, size; где prev_size - размер предыдущего chunk, size - размер текущего chunk.  
 Чанки следуют друг за другом. Вычисление следующего чанка находится так: ```next_chunk = chunk + chunk->size```
 
-free(ptr);
-Осле освобождения чанка структура чанка меняется:  
+```free(ptr)```: Освобовить память. После освобождения чанка структура чанка меняется:  
 
 | prev_size    |
 | size         |  
