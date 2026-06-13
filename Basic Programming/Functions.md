@@ -36,3 +36,6 @@ int main() {
     return 0;
 }
 ```
+## Информация:  
+1. https://learn.microsoft.com/ru-ru/cpp/c-language/function-call-c?view=msvc-170
+2. https://learn.microsoft.com/ru-ru/cpp/c-language/function-calls?view=msvc-170
