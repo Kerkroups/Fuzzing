@@ -34,4 +34,8 @@ unsigned int x = 1e9, y = 2e9, z = 3e9; // 1e9 = 1 * 10^9
 unsigned int r_int = x + y + z;
 unsigned long r_long = x + y + z;
 printf("r_int is: %d, r_long is: %d\n", r_int, r_long); // r_int is: 1705032704, r_long is: 1705032704. Почему такие числа? Такие числа получились в результате расчета 6000000000 % (2ˆ32)
+
+int i;
+float f;
+double d = f + i; // i конвертируется в float, вычисляется результат операции сложения, результат конвертируется в double, затем сохраняется в переменную d.    
 ```
