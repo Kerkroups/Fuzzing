@@ -36,6 +36,37 @@ int main() {
     return 0;
 }
 ```
+
+**Функциональные типы**:  
+В отличие от большинства типов, их нельзя объявить в качестве переменных, но в некотором смысле сами функции являются литералами этих типов. Однако можно объявлять аргументы функций, имеющие функциональные типы, которые будут автоматически преобразованы в указатели на функции.  
+```
+#include <stdion.h>
+
+double g(int number){ return 0.5 + number; }
+double apply(double (f)(int), int x){ return f(x); } // Можно записать как double apply(double (*f)(int), int x){...}
+
+int main(void){
+  printf("%f\n", apply(g, 10));
+  return 0;
+}
+```
+Для чего нужны эти типы? Поскольку типы указателей на функции довольно сложны для записи и чтения, их часто скрывают с помощью typedef. Неправильной (но очень распространённой) практикой является добавление звёздочки в объявлении псевдонима типа.
+```
+ПЛОХОЙ ПРИМЕР ОБЪЯВЛЕНИЯ
+Typedef  void(*proc)(void);
+
+ПРАВИЛЬНЫЙ ПРИМЕР ОБЪЯВЛЕНИЯ
+typedef void(proc)(void);
+typedef double (proc2)(int);
+
+ПРИМЕНЕНИЕ
+proc*  my_ptr  =  &some_proc;
+
+proc2 myproc;
+double myproc(int x){return 1.0 + x;}
+```
+
+
 ## Информация:  
 1. https://learn.microsoft.com/ru-ru/cpp/c-language/function-call-c?view=msvc-170
 2. https://learn.microsoft.com/ru-ru/cpp/c-language/function-calls?view=msvc-170
