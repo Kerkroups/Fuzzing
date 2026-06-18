@@ -114,6 +114,12 @@ int *ptr = arr; // Указывает на первый элемент масс�
 printf("Первый элемент массива arr: %d\n", *ptr); // &arr[0]
 printf("Второй элемент массива arr: %d\n", *(ptr+1)); // &arr[1]
 printf("Третий элемент массива arr: %d\n", *(ptr+2)); // &arr[2]
+
+int a = 42;             /* Assume this integer's address is 1000 */
+int* p_a = &a;
+p_a += 42;              /* 1000 + 42 * sizeof( int ) */
+p_a = p_a + 1;          /* 1168 + 1 * sizeof( int ) */
+p_a --;                 /* 1172 - 1 * sizeof( int ) */
 ```
 
 **Арифметика указателей для С++**:  
