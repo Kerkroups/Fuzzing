@@ -120,6 +120,11 @@ int* p_a = &a;
 p_a += 42;              /* 1000 + 42 * sizeof( int ) */
 p_a = p_a + 1;          /* 1168 + 1 * sizeof( int ) */
 p_a --;                 /* 1172 - 1 * sizeof( int ) */
+
+int arr[128];
+int* ptr1 = &arr[50]; /* `array` address + 50 int sizes */
+int* ptr2 = &arr[90]; /* `array` address + 90 int sizes */
+ptrdiff_t d = ptr2 - ptr1; /* exactly 40 */
 ```
 
 **Арифметика указателей для С++**:  
