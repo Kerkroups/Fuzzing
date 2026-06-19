@@ -36,7 +36,8 @@
 - metadata: prev_size, size; где prev_size - размер предыдущего chunk, size - размер текущего chunk.  
 - Чанки следуют друг за другом. Вычисление следующего чанка находится так: ```next_chunk = chunk + chunk->size```
 
-```free(ptr)```: Освобовить память. После освобождения чанка структура чанка меняется:  ```| prev_size | size | fd | bk | unused space |```  
+```free(ptr)```: Освобовить память. После освобождения чанка структура чанка меняется:  
+```| prev_size | size | fd | bk | unused space |```  
 
 fd - forward pointer;  
 bk - backward pointer;  
