@@ -17,20 +17,15 @@ metadata: prev_size, size; где prev_size - размер предыдущег�
 
 ```free(ptr)```: Освобовить память. После освобождения чанка структура чанка меняется:  
 
-| prev_size    |
-| size         |  
-| fd           |
-| bk           |  
-| unused space |  
+```| prev_size | size | fd | bk | unused space |```
 
 fd - forward pointer;  
 bk - backward pointer;  
 
-В данный момент используется **tcache**:  
-| prev_size            |
-| size                 |  
-| next (fd)            |
-
+В данный момент используется **tcache**:  ```| prev_size | size | next (fd) |```
+prev_size - размер предыдущего chunk;  
+size - размер текущего chunk;  
+next(fd) - указатель на следующий chunk;  
 
 Пример для free() и malloc(): в этом примере Я пытался понять что такое use-after-free.
 ```
