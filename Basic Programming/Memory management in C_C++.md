@@ -97,6 +97,7 @@ buf2 address: 0x7fffffffdbc8
 Когда блок памяти больше не нужен, его необходимо освободить, иначе он навсегда останется в «зарезервированном» состоянии и никогда не будет использован повторно.  
 
 **Пороговые значения и константы для конкретных платформ**:  
+![](https://github.com/Kerkroups/Fuzzing/blob/3901ce50c5e0cafcce9cd06ad4fcc04a0b6d37cc/Basic%20Programming/images/heap_const.png)
 
 
 ## STACK:  
@@ -130,3 +131,4 @@ Stack Pointer (RSP)  // Указывает на вершину стека.
 1. https://learn.microsoft.com/ru-ru/cpp/build/stack-usage?view=msvc-170
 2. https://www.zerosday.com/category/my-ebook
 3. https://www.zerosday.com/post/my-ebook/my-ebook-part-4-04-registers-memory-stack
+4. https://sourceware.org/glibc/wiki/MallocInternals
