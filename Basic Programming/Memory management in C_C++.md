@@ -112,7 +112,47 @@ int main(void)
 
 ```
 После free(arr1) malloc() записыват в пользовательскую часть fd и bk;  
-Когда блок памяти больше не нужен, его необходимо освободить, иначе он навсегда останется в «зарезервированном» состоянии и никогда не будет использован повторно.
+Когда блок памяти больше не нужен, его необходимо освободить, иначе он навсегда останется в «зарезервированном» состоянии и никогда не будет использован повторно.  
+
+**Use-after-free**:  
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void){
+        char *str = "SECRET_DATA";
+        char *buf = malloc(sizeof(char) * strlen(str) + 1);
+        strncpy(buf, str, strlen(str));
+//---------------------------------------------------------
+        printf("buf data: %s\n", buf);
+        printf("buf address: %p\n", buf);  // Отобразит адрес данных в HEAP;
+        printf("buf address: %p\n", &buf); // Отобразит адрес переменной в STACK;
+//---------------------------------------------------------
+        printf("Freeing memory\n");
+        free(buf);
+        printf("buf data afted free(): %s\n\n", buf);
+//---------------------------------------------------------
+        char *buf2 = malloc(sizeof(char) * strlen(str) + 1);
+        strcpy(buf2, "HELLO_WORLD");
+        printf("buf2 data: %s\n", buf);
+        printf("buf2 address is: %p\n", buf2);
+        printf("buf2 address: %p\n", &buf2);
+        return 0;
+}
+```
+Результат:
+```
+buf data: SECRET_DATA
+buf address: 0x555555559310 // Адрес в HEAP;
+buf address: 0x7fffffffdbd0 // Адрес в STACK;
+Freeing memory
+buf data afted free(): YUUU
+
+buf2 data: HELLO_WORLD
+buf2 address is: 0x555555559310
+buf2 address: 0x7fffffffdbc8
+```  
 
 ## STACK:  
 В контексте программирования на Си, стек обозначает определенную автоматичкски выделяемую область памяти в которой хранятся локальные переменные, параметры функции и адресс возврата (ячейка памяти в которую процессор должен вернуться после завершения выполнения функции).  
