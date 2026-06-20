@@ -147,4 +147,5 @@ Stack Pointer (RSP)  // Указывает на вершину стека.
 1. https://learn.microsoft.com/ru-ru/cpp/build/stack-usage?view=msvc-170
 2. https://www.zerosday.com/category/my-ebook
 3. https://www.zerosday.com/post/my-ebook/my-ebook-part-4-04-registers-memory-stack
-4. https://sourceware.org/glibc/wiki/MallocInternals  
+4. https://sourceware.org/glibc/wiki/MallocInternals
+5. https://github.com/iromise/glibc/blob/master/malloc/malloc.c#L462
