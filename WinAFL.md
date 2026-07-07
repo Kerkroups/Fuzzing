@@ -15,7 +15,7 @@ cmake --build . --config Release
 ## EXE FUNCTIONS, EXTERNAL / EXPORTED FUNCTIONS  
 **Tools**:  
 - Dependency walker - показывает список динамически скомпилированных функций.
-- PEView
+- PEView (https://github.com/lyshark/PeView)
 - Resource Hacker
 
 DLL- и EXE-файлы могут экспортировать свои функции, чтобы взаимодействовать  с другими программами и кодом. Обычно в DLL реализована одна или несколько  функций, экспортирующихся для использования в любом исполняемом файле, который пожелает их импортировать. 
