@@ -67,6 +67,23 @@ int main(void) {
 4004fd:       e8 b4 ff ff ff	      call	4004b6 <maximum>
 400502:       89 45 fc			        mov		DWORD PTR [rbp-0x4],eax
 ```
+Упрощенный вариант:
+```
+mov rsi, 999
+mov rdi, 42
+call maximum
+...
+maximum:
+push rbp
+mov rbp, rsp
+sub rsp, 3984
+mov [rbp-0x1004], edi
+mov [rbp-0x1008], esi
+mov eax, [rbp-0x1004]
+...
+Leave
+ret
+```
 
 ## Информация:  
 1. https://learn.microsoft.com/ru-ru/cpp/build/x64-calling-convention?view=msvc-170
