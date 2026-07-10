@@ -54,3 +54,4 @@
 ## SOURCES:  
 https://www.srlabs.de/blog-post/guide-to-writing-fuzzing-harness  
 https://bushido-sec.com/index.php/2025/01/03/fuzzing-harness-guide/  
+https://aflplusplus-aflplusplus.mintlify.app/guides/gui-programs#document-editors-word-pdf-etc
