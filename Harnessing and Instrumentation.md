@@ -4,6 +4,7 @@
 2. Изучить формат ввода данных и интерфейс функции.  
 
 [templates](templates)  
+https://aflplusplus-aflplusplus.mintlify.app/guides/gui-programs#document-editors-word-pdf-etc  
 
 Исходя из статей [https://srlabs.de/blog/guide-to-writing-fuzzing-harness](https://srlabs.de/blog/guide-to-writing-fuzzing-harness) и [https://srlabs.de/blog/unlocking-secrets-effective-fuzzing-harness](https://srlabs.de/blog/unlocking-secrets-effective-fuzzing-harness) делаем вывод и следуем предположительно основным критериям рабочего harness:  
 1. Проверяем размер входящих данных.
