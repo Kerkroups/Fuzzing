@@ -1,17 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <unistd.h>
 
-int main() {
+#include <LightGBM/c_api.h>
 
-__AFL_INIT();
-    unsigned char buf[1024];
+__AFL_FUZZ_INIT();
 
-    while (__AFL_LOOP(10000)) {  // 10,000 итераций в одном процессе
-        ssize_t len = read(0, buf, sizeof(buf));
-        if (len <= 0) break;
+int parse_data(const char *filename)
+{
+    // Code logig;
+}
 
-        // Ваша логика обработки данных
+int main(void)
+{
+#ifdef __AFL_HAVE_MANUAL_CONTROL
+    __AFL_INIT();
+#endif
+
+    unsigned char *buf = __AFL_FUZZ_TESTCASE_BUF;
+    const char *tmpfile = "/tmp/afl_input.txt";
+
+    while (__AFL_LOOP(10000)) {
+
+        int len = __AFL_FUZZ_TESTCASE_LEN;
+
+        FILE *f = fopen(tmpfile, "wb");
+        if (!f)
+            continue;
+
+        fwrite(buf, 1, len, f);
+        fclose(f);
+
+        parse_data(tmpfile);
     }
+
+    unlink(tmpfile);
 
     return 0;
 }
