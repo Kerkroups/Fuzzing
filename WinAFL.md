@@ -32,3 +32,9 @@ EXE-файлы не предназначены для того, чтобы де�
 - .pdata
 - .reloc
 
+## DISABLE ASLR:  
+1. Set-ProcessMitigation -Name "yourfilename.exe" -Disable ForceRelocateImages
+2. CFF Explorer -> DLLCharacteristics -> Uncheck "DLL Can Move" -> Save and overwrite executable.
+3. setdllcharacteristics -d yourfile.exe (https://blog.didierstevens.com/2010/10/17/setdllcharacteristics/)
+4. Windows Security -> App & Browser Control -> Exploit protection section -> Add program to customize -> Force randomization for image -> Overwrite system settings -> Apply.
+
