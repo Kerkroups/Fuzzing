@@ -112,6 +112,23 @@ printf("origin is (%d, %d)\n", (*pp).x, (*pp).y);
 ```
 Круглые скобки в выражении (*pp).x необходимы, так как приоритет оператора ```.``` выше чем у оператора ```*```. Выражение ```*pp.x``` подразумевает ```*(pp.x)```, что неверно и вызовет ошибку так как ```x``` не указатель.  
 
+**Функция с типом данных структуры**:  
+```
+struct rect screen;
+struct point makepoint(int, int);
+
+struct point makepoint(int x, int y){
+  struct point temp;
+  temp.x = x;
+  temp.y = y;
+
+  return temp;
+
+screen.pt1 = makepoint(0, 0);
+screen.pt2 = makepoint(XMAX, YMAX);
+}
+```  
+
 ## Структуры и массивы  
 
 ## Вложенные структуры    
